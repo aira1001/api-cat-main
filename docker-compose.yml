@@ -15,21 +15,21 @@ services:
     networks:
       - laravel
 
-  mysql:
-    image: mysql:5.7.22
-    ports:
-      - "3306:3306"
-    volumes:
-      - ./docker/mysql:/var/lib/mysql
-    networks:
-      - laravel
-    environment:
-      MYSQL_DATABASE: laravel
-      MYSQL_USER: root
-      MYSQL_PASSWORD: secret
-      MYSQL_ROOT_PASSWORD: secret
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
+  # mysql:
+  #   image: mysql:5.7.22
+  #   ports:
+  #     - "3306:3306"
+  #   volumes:
+  #     - ./docker/mysql:/var/lib/mysql
+  #   networks:
+  #     - laravel
+  #   environment:
+  #     MYSQL_DATABASE: laravel
+  #     MYSQL_USER: root
+  #     MYSQL_PASSWORD: secret
+  #     MYSQL_ROOT_PASSWORD: secret
+  #     SERVICE_TAGS: dev
+  #     SERVICE_NAME: mysql
 
   nginx:
     image: nginx:1.19.0-alpine

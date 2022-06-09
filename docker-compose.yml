@@ -26,8 +26,8 @@ services:
     environment:
       MYSQL_DATABASE: laravel
       MYSQL_USER: root
-      MYSQL_PASSWORD: finaenno04
-      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
 

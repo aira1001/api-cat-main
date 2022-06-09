@@ -1,0 +1,42 @@
+version: "3"
+
+networks:
+  laravel:
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./src:/code
+    networks:
+      - laravel
+
+  mysql:
+    image: mysql:5.7.22
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+    networks:
+      - laravel
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: root
+      MYSQL_PASSWORD: finaenno04
+      MYSQL_ROOT_PASSWORD: ""
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+
+  nginx:
+    image: nginx:1.19.0-alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/code
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - laravel
